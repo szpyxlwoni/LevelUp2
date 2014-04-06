@@ -1,0 +1,10 @@
+@(names: List[Cocktail])
+
+@main("Course") {
+    <p>Cocktail names:</p>
+    <ul>
+        @for(name <- names) {
+        <li>@name</li>
+        }
+    </ul>
+}
