@@ -1,0 +1,11 @@
+@(people: List[Person])
+
+@main("Person Lists") {
+<p>Person Lists:</p>
+@for(person <- people) {
+<ul>
+    <li>Name: @person.name</li>
+</ul>
+}
+<button onclick="window.location.href='/register'">Register</button>
+}

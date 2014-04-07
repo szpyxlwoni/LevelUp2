@@ -1,0 +1,24 @@
+@(people: List[Person])
+
+@main("Create Course") {
+    <h2>New Course:</h2>
+    <form action="/create" method="post">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" />
+        </div>
+        <div>
+            <label for="teacher">teacher</label>
+            <select name="teacher" id="teacher">
+                @for(person <- people) {
+                    <option value="@person.id">@person.name</option>
+                }
+            </select>
+        </div>
+        <div>
+            <label for="content">Content</label>
+            <textarea name="content" ></textarea>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+}

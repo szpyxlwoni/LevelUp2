@@ -8,12 +8,10 @@ object ApplicationBuild extends Build {
   val appVersion      = "1.0-SNAPSHOT"
 
   val appDependencies = Seq(
-    // Add your project dependencies here,
     jdbc,
-    "com.typesafe.play" %% "play-slick" % "0.4.0",
-    "com.typesafe.slick" %% "slick" % "1.0.0",
-    "org.slf4j" % "slf4j-nop" % "1.6.4",
-    "com.h2database" % "h2" % "1.3.166"
+    "com.github.aselab" %% "scala-activerecord" % "0.2.3",
+    "org.slf4j" % "slf4j-nop" % "1.7.5",
+    "com.h2database" % "h2" % "1.3.173"
   )
 
 
