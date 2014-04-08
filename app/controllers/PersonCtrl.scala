@@ -9,22 +9,22 @@ object PersonCtrl extends Controller {
   Tables.initialize
 
   def index = Action {
-    Ok(views.html.person.index(Person.toList))
+    Ok(views.html.person.index(User.toList))
   }
 
   def create = Action {
     Ok(views.html.person.create())
   }
 
-  val personForm = Form(
+  val userForm = Form(
     mapping(
       "name" -> text()
-    )(Person.apply)(Person.unapply)
+    )(User.apply)(User.unapply)
   )
 
   def save = Action { implicit rs =>
-    val person = personForm.bindFromRequest.get
-    Person(person.name).save
+    val user = userForm.bindFromRequest.get
+    User(user.name).save
 
     Redirect("/person")
   }

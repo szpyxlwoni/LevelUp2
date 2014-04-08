@@ -1,4 +1,4 @@
-@(people: List[Person])
+@(users: List[User])
 
 @main("Create Course") {
     <h2>New Course:</h2>
@@ -10,8 +10,16 @@
         <div>
             <label for="teacher">teacher</label>
             <select name="teacher" id="teacher">
-                @for(person <- people) {
-                    <option value="@person.id">@person.name</option>
+                @for(user <- users) {
+                    <option value="@user.id">@user.name</option>
+                }
+            </select>
+        </div>
+        <div>
+            <label for="student">student</label>
+            <select name="student" id="student">
+                @for(user <- users) {
+                    <option value="@user.id">@user.name</option>
                 }
             </select>
         </div>

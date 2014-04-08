@@ -1,10 +1,10 @@
-@(people: List[Person])
+@(users: List[User])
 
-@main("Person Lists") {
+@main("User Lists") {
 <p>Person Lists:</p>
-@for(person <- people) {
+@for(user <- users) {
 <ul>
-    <li>Name: @person.name</li>
+    <li>Name: @user.name</li>
 </ul>
 }
 <button onclick="window.location.href='/register'">Register</button>
