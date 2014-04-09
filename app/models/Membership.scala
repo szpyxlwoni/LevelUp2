@@ -1,7 +1,7 @@
 package models
 
 import com.github.aselab.activerecord._
-import org.squeryl.dsl.TOptionLong
+import com.github.aselab.activerecord.dsl._
 
 case class Membership(userId: Long, courseId: Long, roleId: Option[Long] = None) extends ActiveRecord {
   lazy val user = belongsTo[User]

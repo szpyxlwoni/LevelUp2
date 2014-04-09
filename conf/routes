@@ -6,6 +6,7 @@
 GET     /                           controllers.Application.index
 GET     /create                     controllers.Application.create
 POST    /create                     controllers.Application.save
+GET     /edit                       controllers.Application.edit
 GET     /person                     controllers.PersonCtrl.index
 GET     /register                   controllers.PersonCtrl.create
 POST    /person                     controllers.PersonCtrl.save
