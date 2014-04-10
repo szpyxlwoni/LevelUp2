@@ -39,9 +39,8 @@ object Application extends Controller {
     val teacher = User.find(course._3.get)
     val student = User.find(course._4.get)
     val newCourse = Course(course._1, course._2).create
-    val membership = newCourse.users << student.get
-    membership.role := Role.findBy("name", "teacher").get
-    membership.save
+    newCourse.teachers << teacher.get
+    newCourse.students << student.get
 
     Redirect("/")
   }
