@@ -8,22 +8,6 @@
             <input type="text" name="name" />
         </div>
         <div>
-            <label for="teacher">teacher</label>
-            <select name="teacher" id="teacher">
-                @for(user <- users) {
-                    <option value="@user.id">@user.name</option>
-                }
-            </select>
-        </div>
-        <div>
-            <label for="student">student</label>
-            <select name="student" id="student">
-                @for(user <- users) {
-                    <option value="@user.id">@user.name</option>
-                }
-            </select>
-        </div>
-        <div>
             <label for="content">Content</label>
             <textarea name="content" ></textarea>
         </div>
