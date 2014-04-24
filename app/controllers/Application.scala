@@ -25,22 +25,13 @@ object Application extends Controller {
   val courseForm = Form(
     tuple(
       "name" -> text(),
-      "content" -> optional(text()),
-      "teacher" -> optional(number()),
-      "student" -> optional(number())
+      "content" -> optional(text())
     )
   )
 
   def save = Action { implicit rs =>
-    if (Role.all.count == 0) {
-      Seq("teacher", "student").foreach(s => Role(s).save)
-    }
     val course = courseForm.bindFromRequest.get
-    val teacher = User.find(course._3.get)
-    val student = User.find(course._4.get)
-    val newCourse = Course(course._1, course._2).create
-    newCourse.teachers << teacher.get
-    newCourse.students << student.get
+    Course(course._1, course._2).create
 
     Redirect("/")
   }
