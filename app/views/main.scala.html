@@ -2,15 +2,52 @@
 
 <!DOCTYPE html>
 
-<html>
+<html ng-app="levelup">
     <head>
         <title>@title</title>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
     </head>
     <body>
-        @content
+        <div class="navbar navbar-fixed">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="/">Level Up</a>
+                    <ul class="nav">
+                        <li class="active"><a href="/">Courses</a></li>
+                        <li><a href="/person">Person</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="content">
+                <div class="page-header">
+                    <h1>@title</h1>
+                </div>
+                @content
+            </div>
+
+            <footer>
+                <p>&copy; ThoughtWorks 2014 D</p>
+            </footer>
+        </div>
+
+
+        <script src="@routes.Assets.at("javascripts/vendor/jquery-1.9.0.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/vendor/d3.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/vendor/bootstrap.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/vendor/angular.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/main.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/diagram.controller.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/data.js")" type="text/javascript"></script>
     </body>
 </html>

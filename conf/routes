@@ -6,10 +6,15 @@
 GET     /                           controllers.Application.index
 GET     /create                     controllers.Application.create
 POST    /create                     controllers.Application.save
+GET     /diagram                    controllers.Application.diagram
 GET     /edit                       controllers.Application.edit
+GET     /tasks                      controllers.Application.tasks(course: Long)
+GET     /courses                    controllers.Application.courses
 GET     /person                     controllers.PersonCtrl.index
 GET     /register                   controllers.PersonCtrl.create
 POST    /person                     controllers.PersonCtrl.save
+GET     /person/edit/:id            controllers.PersonCtrl.edit(id: Long)
+GET     /person/update              controllers.PersonCtrl.update(id: Long, courses: List[Long])
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

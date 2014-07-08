@@ -16,6 +16,16 @@ object PersonCtrl extends Controller {
     Ok(views.html.person.create())
   }
 
+  def edit(id: Long) = Action {
+    Ok(views.html.person.edit(User.find(id).get))
+  }
+
+  def update(id: Long, courses: List[Long]) = Action {
+    val user = User.find(id).get
+    for (course <- courses) yield user.courses << Course.find(course).get
+    Ok(views.html.person.index(User.toList))
+  }
+
   val userForm = Form(
     mapping(
       "name" -> text()

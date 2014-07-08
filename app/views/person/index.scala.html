@@ -1,11 +1,24 @@
 @(users: List[User])
 
 @main("User Lists") {
-<p>Person Lists:</p>
-@for(user <- users) {
-<ul>
-    <li>Name: @user.name</li>
-</ul>
-}
-<button onclick="window.location.href='/register'">Register</button>
+    <p>Person Lists:</p>
+    <div class="row">
+        <div class="span10">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Name</td>
+                    <td>Operation</td>
+                </tr>
+                @for(user <- users) {
+                <tr>
+                    <td>@user.name</td>
+                    <td>
+                       <a href="/person/edit/@user.id">Edit</a>
+                    </td>
+                </tr>
+                }
+            </table>
+            <button class="btn btn-primary" onclick="window.location.href='/register'">Register</button>
+        </div>
+    </div>
 }

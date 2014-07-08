@@ -1,4 +1,4 @@
-@(users: List[User])
+@(courses: List[Course])
 
 @main("Create Course") {
     <h2>New Course:</h2>
@@ -11,6 +11,14 @@
             <label for="content">Content</label>
             <textarea name="content" ></textarea>
         </div>
-        <button type="submit">Submit</button>
+        <div>
+            <label for="content">Parent Course</label>
+            <select name="parent">
+                @for(course <- courses) {
+                    <option value="@course.id">@course.name</option>
+                }
+            </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 }

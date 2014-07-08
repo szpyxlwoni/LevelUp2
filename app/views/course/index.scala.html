@@ -1,18 +1,22 @@
 @(courses: List[Course])
 
-@main("Course Details") {
-    <fieldset>
-        <legend>Course Lists:</legend>
-        <div class="course-list clearfix">
+@main("Course List") {
+    <div class="row">
+        <div class="span10">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Name</td>
+                    <td>Content</td>
+                </tr>
             @for(course <- courses) {
-                <ul>
-                    <li class="col-md-4">Name: @course.name</li>
-                    <li class="col-md-4">Content: @course.content</li>
-                </ul>
+                <tr>
+                    <td>@course.name</td>
+                    <td>@course.content</td>
+                </tr>
             }
+            </table>
+            <button class="btn btn-primary" onclick="window.location.href='/create'">Create</button>
+            <button class="btn btn-primary" onclick="window.location.href='/diagram'">Diagram</button>
         </div>
-        <div>
-            <button onclick="window.location.href='/create'">Create Course</button>
-        </div>
-    </fieldset>
+    </div>
 }

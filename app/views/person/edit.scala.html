@@ -1,0 +1,18 @@
+@(user:User)
+
+@import com.github.aselab.activerecord.dsl._
+@import play.api.libs.json.Json
+
+@main("Edit Person Profile") {
+<h2>Your Profile:</h2>
+    <form action="/person/update">
+        <div>
+            <label>@user.name</label>
+            <input type="hidden" name="id" value="@user.id" />
+            @for(course <- Course.toList) {
+                <div><input name="courses" style="display: inline; margin-right: 10px" type="checkbox" value="@course.id" />@course.name</div>
+            }
+        </div>
+        <button class="btn btn-primary" type="submit">Update</button>
+    </form>
+}
